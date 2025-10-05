@@ -1,20 +1,37 @@
 {% load static %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <title>Camila Florez blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
+
+    <footer>
+    <p>© 2025 Camila Flórez · Hecho con 💕 en Django</p>
+    <div class="social-links">
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a> |
+        <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/" target="_blank">GitHub</a>
+    </div>
+</footer>
+
     <body>
        <div class="page-header">
        {% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-{% endif %}
-        <h1><a href="/">Django Girls Blog</a></h1>
-    
-    </div>
+           <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+       {% endif %}
+        <h1><a href="/">Camila Florez Blog</a></h1>
+        <p class="subtitle">Mis proyectos y aprendizajes</p>
+        <nav class="top-nav">
+            <a href="{% url 'post_list' %}">Inicio</a>
+            {% if user.is_authenticated %}
+               <a href="{% url 'post_new' %}">Nuevo Post</a>
+            {% endif %}
+    </nav>
+</div>
+
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
@@ -23,6 +40,8 @@
             </div>
         </div>
     </div>
+
+    
 
     </body>
 </html>

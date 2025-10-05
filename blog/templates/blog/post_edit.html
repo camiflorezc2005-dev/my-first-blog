@@ -1,9 +1,13 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
+<div class="form-container">
+    <h2>{% if form.instance.pk %}Editar publicación{% else %}Nueva publicación{% endif %}</h2>
+
+    <form method="POST" class="post-form">
+        {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save">💾 Guardar</button>
     </form>
+</div>
 {% endblock %}
